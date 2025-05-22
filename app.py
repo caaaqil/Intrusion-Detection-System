@@ -385,15 +385,18 @@ def predict():
                     protocol_key = 'u d p'
                 else:
                     protocol_key = 'i c m p'  # default or handle error
-                features[feature_mapping['protocol_type']] = protocol_type_mapping[protocol_key]
+                features[feature_mapping['protocol_type']
+                         ] = protocol_type_mapping[protocol_key]
 
             if 'service' in form_data:
                 service = form_data['service']
-                features[feature_mapping['service']] = service_mapping.get(service, service_mapping['other'])
+                features[feature_mapping['service']] = service_mapping.get(
+                    service, service_mapping['other'])
 
             if 'flag' in form_data:
                 flag = form_data['flag']
-                features[feature_mapping['flag']] = flag_mapping.get(flag, flag_mapping['OTH'])
+                features[feature_mapping['flag']] = flag_mapping.get(
+                    flag, flag_mapping['OTH'])
 
             # Process numerical features
             for field, index in feature_mapping.items():
